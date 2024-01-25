@@ -24,6 +24,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     implementation("org.springframework.boot:spring-boot-starter-mail")
+    implementation("com.sun.mail:javax.mail:1.6.2")  // 최신 버전 확인
+    implementation("cn.hutool:hutool-all:5.7.14") // 최신 버전 확인
 
 }
 

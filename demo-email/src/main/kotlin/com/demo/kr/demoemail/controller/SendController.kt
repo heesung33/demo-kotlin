@@ -1,5 +1,6 @@
 package com.demo.kr.demoemail.controller
 
+import com.demo.kr.demoemail.dto.EmailFileRequest
 import com.demo.kr.demoemail.dto.EmailRequest
 import com.demo.kr.demoemail.service.MailService
 import org.springframework.beans.factory.annotation.Autowired
@@ -14,6 +15,18 @@ class SendController @Autowired constructor(private val mailService: MailService
         val map = HashMap<String, Any>()
         try {
             mailService.sendSimpleMail(emailRequest.to, emailRequest.subject, emailRequest.content)
+            map["status"] = "success"
+        } catch (e : Exception) {
+            map["status"] = "error"
+            map["message"] = e.message ?: "An error occurred"
+        }
+        return map
+    }
+    @PostMapping("/send/email/file")
+    fun sendFileMail(@RequestBody emailRequest: EmailFileRequest) : HashMap<String, Any> {
+        val map = HashMap<String, Any>()
+        try {
+            mailService.sendFileMail(emailRequest.to, emailRequest.subject, emailRequest.content, emailRequest.cc , emailRequest.filePath)
             map["status"] = "success"
         } catch (e : Exception) {
             map["status"] = "error"
