@@ -4,6 +4,5 @@ data class EmailFileRequest(
     val to: String,
     val subject: String,
     val content: String,
-    val cc: String,
-    val filePath: String
+    val cc: String?
 )
