@@ -1,6 +1,7 @@
 package com.example.democrud.service
 
 import com.example.democrud.dto.NoticeDto
+import com.example.democrud.dto.NoticeResponse
 import com.example.democrud.model.Notice
 import com.example.democrud.repository.NoticeRepository
 import org.modelmapper.ModelMapper
@@ -26,8 +27,8 @@ class NoticeService @Autowired constructor(
         return noticeRepository.findById(id).get()
     }
 
-    fun getByAllId() : List<Notice> {
-        return noticeRepository.findAll()
+    fun getByAllId(): NoticeResponse {
+        return NoticeResponse(noticeRepository.count(), noticeRepository.findAll(), NoticeResponse.testset(1L))
     }
 
     fun delete(id: Long) {

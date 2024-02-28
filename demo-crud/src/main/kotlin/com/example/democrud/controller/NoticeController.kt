@@ -1,6 +1,7 @@
 package com.example.democrud.controller
 
 import com.example.democrud.dto.NoticeDto
+import com.example.democrud.dto.NoticeResponse
 import com.example.democrud.model.Notice
 import com.example.democrud.service.NoticeService
 import org.springframework.beans.factory.annotation.Autowired
@@ -31,7 +32,7 @@ class NoticeController @Autowired constructor(val noticeService: NoticeService) 
     }
 
     @GetMapping("/get/all")
-    fun getAll(): List<Notice> {
+    fun getAll(): NoticeResponse {
         return noticeService.getByAllId()
     }
 
