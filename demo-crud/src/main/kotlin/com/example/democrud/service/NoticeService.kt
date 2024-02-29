@@ -28,7 +28,7 @@ class NoticeService @Autowired constructor(
     }
 
     fun getByAllId(): NoticeResponse {
-        return NoticeResponse(noticeRepository.count(), noticeRepository.findAll(), NoticeResponse.testset(1L))
+        return NoticeResponse(noticeRepository.count(), noticeRepository.findAll())
     }
 
     fun delete(id: Long) {
