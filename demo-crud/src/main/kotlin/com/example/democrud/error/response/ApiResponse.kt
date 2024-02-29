@@ -3,10 +3,9 @@ package com.example.democrud.error.response
 import com.example.democrud.error.message.ErrorCode
 
 data class ApiResponse(
-    var status: Int,
-    var resultCode: String,
-    var resultMsg: String
+    val status: Int,
+    val resultCode: String,
+    val resultMsg: String
 ) {
-    constructor(errorCode: ErrorCode) : this(errorCode.status, errorCode.divisionCode, errorCode.message) {
-    }
+    constructor(errorCode: ErrorCode) : this(errorCode.status, errorCode.divisionCode, errorCode.message)
 }
