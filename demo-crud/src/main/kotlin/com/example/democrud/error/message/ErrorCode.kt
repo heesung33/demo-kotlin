@@ -5,7 +5,20 @@ enum class ErrorCode(
     val divisionCode: String,
     val message: String
 ) {
+    /**
+     * ******************************* Global Success CodeList ***************************************
+     */
+    // 삭제 성공 코드 (HTTP Response: 200 OK)
+    DELETE_SUCCESS(200, "200", "DELETE SUCCESS"),
 
+    // 조회 성공 코드 (HTTP Response: 200 OK)
+    SELECT_SUCCESS(200, "200", "SELECT SUCCESS"),
+
+    // 수정 성공 코드 (HTTP Response: 201 Created)
+    UPDATE_SUCCESS(204, "204", "UPDATE SUCCESS"),
+
+    // 삽입 성공 코드 (HTTP Response: 201 Created)
+    INSERT_SUCCESS(201, "201", "INSERT SUCCESS"),
     /**
      * ******************************* Global Error CodeList ***************************************
      * HTTP Status Code
@@ -51,6 +64,7 @@ enum class ErrorCode(
 
     // @RequestBody 및 @RequestParam, @PathVariable 값이 유효하지 않음
     NOT_VALID_HEADER_ERROR(404, "G012", "Header에 데이터가 존재하지 않는 경우 "),
+    METHOD_NOT_ALLOWED_ERROR(405, "G013", "Method Not Allowed Exception"),
 
     // 서버가 처리 할 방법을 모르는 경우 발생
     INTERNAL_SERVER_ERROR(500, "G999", "Internal Server Error Exception"),
